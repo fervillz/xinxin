@@ -15,6 +15,12 @@ A starter theme called xinxin, or underscores.
 
 Hi. I'm a starter theme called xinxin, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
+== Licenses ==
+
+* Font Awesome icon font, by Dave Gandy, Font Awesome are licensed under the terms of the SIL OFL 1.1, Code licensed under MIT License, Version 3.0 (or later), Source: https://fortawesome.github.io/Font-Awesome
+* Image in screenshot.png from unsplash.com (https://download.unsplash.com/photo-1433785124354-92116416b870), licensed CC0
+* Google font Open Sans - Apache License, version 2.0
+
 == Installation ==
 	
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
@@ -29,10 +35,6 @@ xinxin includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0 - February 28 2016 =
 * Initial release
 
-== Credits ==
-
-* Based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2015 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)

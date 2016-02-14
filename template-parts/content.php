@@ -11,29 +11,63 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
+		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
-		if ( 'post' === get_post_type() ) : ?>
+		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php xinxin_posted_on(); ?>
 		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
+		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'xinxin' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+	<div class="<?php if (is_home()) echo "home"; ?> entry-thumbnail">
 
+	<?php if ( has_post_thumbnail() ) : ?>
+			<?php the_post_thumbnail( 'xinxin-featured' ); ?>
+	<?php else : ?>
+		<img src="<?php echo catch_that_image(); ?>" alt="">
+	<?php endif; ?>
+
+	</div><!-- .entry-thumbnail -->
+
+	<div class="entry-content">
+	
+	<?php 
+
+	$xx_more_text = esc_attr(get_theme_mod( 'xx_more_text' ));
+	if ( ! $xx_more_text ){
+		$xx_more_text =  'Read More &raquo;';
+	}
+
+	$xx_more_position = esc_attr(get_theme_mod( 'xx_more_position' ));
+	if ( ! $xx_more_position ){
+		$xx_more_position =  'left';
+	}
+
+	if ( esc_attr((get_theme_mod('xx_excerpt_type' ) == 'option2') || get_theme_mod( 'xx_excerpt_type' ) == NULL))  {
+		the_excerpt();
+	}
+	else{
+		
+		if ( esc_attr(get_theme_mod( 'xx_more_type' ) == 'option1') || (get_theme_mod( 'xx_more_type' ) == NULL) ) {
+			the_content('',FALSE,'');
+		}
+		elseif( esc_attr(get_theme_mod( 'xx_more_type' ) == 'option2' )){
+			the_content( $xx_more_text );
+		}
+		elseif( esc_attr(get_theme_mod( 'xx_more_type' ) == 'option3' )){
+			
+			if ( esc_attr(get_theme_mod( 'xx_more_button' ) == 'option1' )) {
+				the_content("<span class='xx_button xx_fill xx_squared'"."style='margin-top: 30px; padding:4px 8px; background-color:".esc_attr(get_theme_mod( 'xx_button_bg' ))."; "."color:".esc_attr(get_theme_mod( 'xx_text_color' ))."; "."float:".$xx_more_position.";'>".$xx_more_text."</div>");
+			}
+			else{
+				the_content("<span class='xx_button xx_fill xx_rounded'"."style='margin-top: 30px; padding:4px 8px; background-color:".esc_attr(get_theme_mod( 'xx_button_bg' ))."; "."color:".esc_attr(get_theme_mod( 'xx_text_color' ))."; "."float:".$xx_more_position.";'>".$xx_more_text."</div>");
+			}
+			
+		}
+	}
+	?>
+		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'xinxin' ),
 				'after'  => '</div>',

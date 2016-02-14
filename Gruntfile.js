@@ -5,7 +5,7 @@ module.exports = function (grunt) {
 		sass: {
 			dist: {
 				options: {
-					style: 'compressed',
+					style: 'expanded', //compressed
 					sourcemap: 'none',
 					cacheLocation: 'sass/.cache-location',
 				},

@@ -7,34 +7,63 @@
  * @package xinxin
  */
 
+if ( ! function_exists( 'the_posts_navigation' ) ) :
+/**
+ * Display navigation to next/previous set of posts when applicable.
+ *
+ * @todo Remove this function when WordPress 4.3 is released.
+ */
+function the_posts_navigation() {
+	// Don't print empty markup if there's only one page.
+	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+		return;
+	}
+	?>
+	<nav class="navigation posts-navigation" role="navigation">
+		<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'xinxin' ); ?></h2>
+		<div class="nav-links">
+
+			<?php if ( get_next_posts_link() ) : ?>
+			<div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', 'xinxin' ) ); ?></div>
+			<?php endif; ?>
+
+			<?php if ( get_previous_posts_link() ) : ?>
+			<div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', 'xinxin' ) ); ?></div>
+			<?php endif; ?>
+
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	<?php
+}
+endif;
+
 if ( ! function_exists( 'xinxin_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function xinxin_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+
+	//Check for author-icon value
+	if ( get_theme_mod( 'xx_author_icon' ) ) {
+		$icon_author = get_theme_mod( 'xx_author_icon','fa-user' );
+	}
+	else {
+		$icon_author = 'fa-user';
 	}
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
+	//Check for date-icon value
+	if ( get_theme_mod( 'xx_date_icon' ) ) {
+		$icon_date = get_theme_mod( 'xx_date_icon','fa-calendar' );
+	}
+	else {
+		$icon_date = 'fa-calendar';
+	}
 
-	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'xinxin' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
-
-	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'xinxin' ),
+	$byline = sprintf( '<i class="fa '.$icon_author.'"></i> %s',
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	echo '<span class="byline"> '. $byline . '</span><span class="posted-on"> <i class="fa '.$icon_date.'""></i><span>' . get_the_time('d/m/Y') . '</span></span>' ; // WPCS: Xxx OK.
 
 }
 endif;
@@ -49,13 +78,13 @@ function xinxin_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'xinxin' ) );
 		if ( $categories_list && xinxin_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'xinxin' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'xinxin' ) . '</span>', $categories_list ); // WPCS: Xxx OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'xinxin' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'xinxin' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'xinxin' ) . '</span>', $tags_list ); // WPCS: Xxx OK.
 		}
 	}
 
