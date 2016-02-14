@@ -18,5 +18,22 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "FernandoVillamorJr",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "light",
+    "red",
+    "white",
+    "one-column",
+    "responsive-layout",
+    "custom-header",
+    "custom-menu",
+    "featured-images",
+    "flexible-header",
+    "post-formats",
+    "rtl-language-support",
+    "sticky-post",
+    "theme-options",
+    "translation-ready"
+  ]
+
 }

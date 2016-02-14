@@ -1,9 +1,11 @@
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	padding: 0;
+    margin: 0;
 }
 
-ul {
-	list-style: disc;
+ul li,
+ol li {
+	list-style-position: inside;
 }
 
 ol {

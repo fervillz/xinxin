@@ -5,6 +5,23 @@
  */
 
 ( function( $ ) {
+
+	$( 'body' ).addClass( 'customizer' );
+
+	var elementhighlight = 'elementhighlight';
+
+	// Site title and description.
+	wp.customize( 'xx_guide', function( value ) {
+		value.bind( function( to ) {
+			if ( ('blank' === to) || ( false === to) ) {
+				$( '#page' ).removeClass( 'help-on' );
+			} 
+			else {
+				$( '#page' ).addClass( 'help-on' );
+			}
+		} );
+	} );
+
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
@@ -35,7 +52,7 @@
 	} );
 
 	// meta date
-	var icondateFont
+	var icondateFont;
 	wp.customize( 'xx_date_icon', function( value ) {
 		value.bind( function( to ) {
 			
@@ -76,12 +93,15 @@
         }
 
         $( 'span.posted-on i' ).attr('class','fa '+icondateFont);
-				
-		} );
+
+		$( 'span.posted-on' ).addClass( elementhighlight );
+
+		});
+
 	} );
 
 	// meta date
-	var iconauthorFont
+	var iconauthorFont;
 	wp.customize( 'xx_author_icon', function( value ) {
 		value.bind( function( to ) {
 			
@@ -115,7 +135,7 @@
 	} );
 
 	//Typography
-	var sFont
+	var sFont;
 	wp.customize( 'font_family', function( value ) {
     value.bind( function( to ) {
  

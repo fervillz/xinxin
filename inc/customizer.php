@@ -12,13 +12,78 @@
  */
 
 function xinxin_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->add_section( 'xinxin_logo_section' , array(
+    
+    //Customizer guide
+    xinxin_guide( $wp_customize );
+
+    //call builtin customizer settings
+    xinxin_builtin( $wp_customize );
+    
+    //site logo
+    xinxin_logo( $wp_customize );
+
+    /* more link */
+   xinxin_readmore( $wp_customize );
+
+    //Entry meta
+    xinxin_customize_entry_meta( $wp_customize );
+    xinxin_test1( $wp_customize );
+
+    //Typo
+    section_typo ($wp_customize );
+
+}
+add_action( 'customize_register', 'xinxin_customize_register' );
+
+/**
+
+
+
+**/
+
+function xinxin_guide( $wp_customize ) {
+
+     $wp_customize->add_section(
+    'xx_help',
+    array(
+        'title' => esc_attr('Help', 'xinxin'),
+        'description' => esc_attr('A guide for beginners', 'xinxin' ),
+        'priority' => 1,
+    )
+    );
+
+    $wp_customize->add_setting(
+        'xx_guide',
+        array(
+            'default' => true,
+            'sanitize_callback' => 'esc_url_raw',
+            'transport' => 'postMessage'
+        )
+    );
+
+    $wp_customize->add_control(
+        'xx_guide',
+        array(
+            'type' => 'checkbox',
+            'label' => esc_attr('Guide', 'xinxin' ),
+            'description' => 'Check to see which part of the site you are editing',
+            'section' => 'xx_help',
+        )
+    );
+
+}
+
+function xinxin_builtin( $wp_customize ) {
+    $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+    $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+    $wp_customize->add_section( 'xinxin_logo_section' , array(
     'title'       => esc_attr( 'Logo', 'xinxin' ),
     'priority'    => 30,
     'description' => esc_attr('Upload a logo to replace the default site name and description in the more', 'xinxin' ),
     ) );
+}
+
+function xinxin_logo( $wp_customize ) {
     
     $wp_customize->add_setting( 'xinxin_logo',
         'sanitize_callback' == 'esc_url_raw'
@@ -30,9 +95,10 @@ function xinxin_customize_register( $wp_customize ) {
         'settings' => 'xinxin_logo',
         'sanitize_callback' => 'esc_url_raw',
     ) ) );
+}
 
-    /* more link */
-    $wp_customize->add_section(
+function xinxin_readmore( $wp_customize ) {
+     $wp_customize->add_section(
     'more_options',
     array(
         'title' => esc_attr('More Link Options', 'xinxin'),
@@ -185,13 +251,8 @@ function xinxin_customize_register( $wp_customize ) {
             'section' => 'more_options',
     ) ) );
 
-    //Entry emta
-    xinxin_customize_entry_meta( $wp_customize );
-    xinxin_test1( $wp_customize );
-    section_typo ($wp_customize );
-
 }
-add_action( 'customize_register', 'xinxin_customize_register' );
+
 
 /**
 
@@ -250,10 +311,6 @@ function _check_is_link_tile_size_large($control){
             $validation_setting = 'archive_link_tile_size';
             break;
 
-        case 'search_show_more_link' :
-            $validation_setting = 'search_link_tile_size';
-            break;
-
     endswitch;
 
     return ($control->manager->get_setting($validation_setting)->value() === 'large');
@@ -266,6 +323,20 @@ function _check_is_link_tile_size_large($control){
 
 
 **/
+
+/**
+ * Callback meta entry
+ */
+function xx_meta_callback(){
+
+    if ( get_theme_mod( 'xx_entry_meta_type', false ) == true ) {
+        return true;
+    }
+    else {
+        return false;
+    }
+
+}
 
 
 /**
@@ -321,6 +392,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
             'label' => esc_attr('Date/Time Icon', 'xinxin' ),
             'description' => esc_attr('' ),
             'section' => 'entry_meta_options',
+            'active_callback'   => 'xx_meta_callback',
             'choices' => array(
                 'fa-calendar' => 'fa-calendar',
                 'fa-calendar-check-o' => 'fa-calendar-check-o',
@@ -355,6 +427,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
             'label' => esc_attr('Author Icon', 'xinxin' ),
             'description' => esc_attr('' ),
             'section' => 'entry_meta_options',
+            'active_callback'   => 'xx_meta_callback',
             'choices' => array(
                 'fa-user' => 'fa-user',
                 'fa-pencil' => 'fa-pencil',

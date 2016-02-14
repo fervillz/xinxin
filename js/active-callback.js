@@ -7,13 +7,22 @@
 ( function( $ ) {
     // Site title and description.
  wp.customize.bind( 'ready', function () {
-    wp.customize.control( 'archive_show_more_link', function( control ) {
-        var setting = wp.customize( 'archive_link_tile_size' );
+    wp.customize.control( 'xx_date_icon', function( control ) {
+        var setting = wp.customize( 'xx_entry_meta_type' );
         control.active.set( true === setting.get() );
         setting.bind( function( value ) {
             control.active.set( true === value );
         } );
     } );
+
+     wp.customize.control( 'xx_author_icon', function( control ) {
+        var setting = wp.customize( 'xx_entry_meta_type' );
+        control.active.set( true === setting.get() );
+        setting.bind( function( value ) {
+            control.active.set( true === value );
+        } );
+    } );
+     
 } );
 
 } )( jQuery );

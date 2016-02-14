@@ -1,0 +1,10 @@
+.site-content {
+	background: #fff;
+	padding: 0;
+	line-height: 1.6em;
+	font-size: 14px;
+
+	@media (max-width: $screen-sm-min + 1px) {
+		padding: 0 10px;
+	}
+}

@@ -20,11 +20,14 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
+<body <?php body_class();?>>
+<div id="page" class="site container <?php if ( get_theme_mod( 'xx_guide', 1 )) { echo "help-on";} ?>">
+<div class="row">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'xinxin' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
+	<div class="container">
+	<div class="row">
 		<div class="site-branding">
 			<?php if ( function_exists( 'jetpack_the_site_logo' ) ) jetpack_the_site_logo(); ?>
 			
@@ -41,10 +44,14 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
+		
+	
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'xinxin' ); ?></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
+	</div><!-- .row -->
+	</div><!-- .container -->
 	</header><!-- #masthead -->
 
 	<?php if (is_home()): ?>
