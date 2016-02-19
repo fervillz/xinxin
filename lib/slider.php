@@ -87,7 +87,7 @@ function xx_columns_content($column_name, $post_ID) {
     }
 }
 
-add_action('manage_posts_custom_column', 'xx_columns_content', 10, 2);
+add_action('manage_slider_posts_custom_column', 'xx_columns_content', 10, 2);
 
 
 

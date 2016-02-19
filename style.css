@@ -1,5 +1,5 @@
 /*!
-Theme Name: xinxin
+Theme Name: blank
 Theme URI: http://underscores.me/
 Author: fernan villamor jr
 Author URI: http://fernandovillamorjr.com
@@ -758,24 +758,11 @@ a:hover, a:active {
 .main-navigation a {
   display: block;
   text-decoration: none;
-  background: -webkit-linear-gradient(#213f82, #1b346b);
-  background: linear-gradient(#213f82, #1b346b);
-  color: #fff;
-  padding: 6px 20px;
-  border-radius: 7px 7px 0 0;
-  border: 3px solid #14316f;
-  min-width: 120px;
+  color: #000;
   font-size: 14px;
   text-transform: capitalize;
   text-align: center;
   margin-left: 3px;
-}
-@media (max-width: 769px) {
-  .main-navigation a {
-    border-radius: 0;
-    margin: 0;
-    min-width: 0;
-  }
 }
 
 /* Small menu. */

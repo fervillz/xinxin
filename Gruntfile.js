@@ -27,28 +27,19 @@ module.exports = function (grunt) {
 
 		watch: {
 			options: {
-				livereload: true,
-			},
-			scripts: {
-				files: ['**/*.js'],
-				tasks: ['jshint'],
+				livereload: 35729,
 			},
 			css: {
-				files: '**/*.scss',
+				files: '*/*.scss',
 				tasks: ['sass', 'autoprefixer'],
 			},
-		},
-
-		jshint: {
-			all: ['Gruntfile.js', 'scripts/scripts.js'],
 		},
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-autoprefixer');
-
+	grunt.loadNpmTasks('grunt-livereload');
 	grunt.registerTask('default', ['watch']);
 	grunt.registerTask('css', ['sass', 'autoprefixer']);
 };

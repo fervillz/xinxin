@@ -64,4 +64,10 @@
 		</div><!-- >header-img -->
 	<?php endif; ?>
 
+	<?php if (is_home()): ?>
+		<div class="slider big">
+			<?php get_template_part( 'lib/frontend/slider', ''); ?>
+		</div><!-- >header-img -->
+	<?php endif; ?>
+
 	<div id="content" class="site-content">
