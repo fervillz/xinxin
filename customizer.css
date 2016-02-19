@@ -1,0 +1,14 @@
+/*--------------------------------------------------------------
+# Customizer radio to font
+--------------------------------------------------------------*/
+input[type="radio"] {
+  display: none;
+}
+
+#customize-control-xx_date_icon input[type=radio]:checked:before {
+  content: '\f073';
+}
+
+input[type=radio]:checked:before {
+  font-family: fontawesome;
+}

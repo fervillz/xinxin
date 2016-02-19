@@ -69,4 +69,6 @@ jQuery( document ).ready( function ( $ ) {
 	// Begin watching for events.
 	siteEvents.watch();
 
+	$( ".product-quantity" ).remove();
+
 });

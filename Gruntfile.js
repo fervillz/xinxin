@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 				},
 				files: [{
 					'style.css': 'sass/style.scss',
+					'customizer.css': 'sass/customizer.scss',
 				}],
 			},
 		},
@@ -19,6 +20,7 @@ module.exports = function (grunt) {
 			dist: {
 				files: {
 					'style.css': 'style.css',
+					'customizer.css': 'customizer.css',
 				},
 			},
 		},

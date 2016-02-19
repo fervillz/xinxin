@@ -1,5 +1,5 @@
 /*!
-Theme Name: blank
+Theme Name: xinxin
 Theme URI: http://underscores.me/
 Author: fernan villamor jr
 Author URI: http://fernandovillamorjr.com
@@ -2041,9 +2041,6 @@ object {
 /*--------------------------------------------------------------
 # Customizer preview
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Customizer preview
---------------------------------------------------------------*/
 .customizer .help-on .posted-on.elementhighlight {
   position: relative;
   z-index: 2;
@@ -2097,6 +2094,3 @@ object {
             transform: scale(1);
   }
 }
-/*--------------------------------------------------------------
-# Customizer radio to font
---------------------------------------------------------------*/

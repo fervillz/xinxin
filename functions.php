@@ -122,6 +122,8 @@ function xinxin_scripts() {
 
 	wp_enqueue_script( 'xinxin-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
+	wp_enqueue_script( 'xinxin-navigation', get_template_directory_uri() . '/js/woocommerce.js', array(), false, true );
+
 	wp_enqueue_script( 'xinxin-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -135,7 +137,9 @@ add_action( 'wp_enqueue_scripts', 'xinxin_scripts' );
  * Binds JS handlers to make Theme Customizer controls reload changes asynchronously.
  */
 function xinxin_customize_control_js() {
+	wp_enqueue_style( 'customizer', get_template_directory_uri().'/customizer.css' );
 	wp_enqueue_script( 'xinxin_customizer_controls', get_template_directory_uri() . '/js/active-callback.js', array( 'customize-controls' ), false, true );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri().'/font-awesome/css/font-awesome.min.css' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'xinxin_customize_control_js' );
 
@@ -145,7 +149,7 @@ add_action( 'customize_controls_enqueue_scripts', 'xinxin_customize_control_js' 
 function xinxin_customize_preview_js() {
 
     wp_enqueue_script( 'xinxin_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), false, true );
-    
+
 }
 add_action( 'customize_preview_init', 'xinxin_customize_preview_js' );
 
@@ -310,4 +314,46 @@ add_action( 'save_post', 'book_save' );
 	Usage: book_get_meta( 'book_author' )
 	Usage: book_get_meta( 'book_description' )
 */
+
+
+
+add_filter( 'woocommerce_checkout_fields' , 'woo_remove_billing_checkout_fields' );
+
+function woo_remove_billing_checkout_fields( $fields ) {
+    	
+    	unset($fields['billing']['billing_first_name']);
+unset($fields['billing']['billing_last_name']);
+unset($fields['billing']['billing_company']);
+unset($fields['billing']['billing_address_1']);
+unset($fields['billing']['billing_address_2']);
+unset($fields['billing']['billing_city']);
+unset($fields['billing']['billing_postcode']);
+unset($fields['billing']['billing_country']);
+unset($fields['billing']['billing_state']);
+unset($fields['billing']['billing_email']);
+unset($fields['billing']['billing_phone']);
+unset($fields['shipping']['shipping_first_name']);
+unset($fields['shipping']['shipping_last_name']);
+unset($fields['shipping']['shipping_company']);
+unset($fields['shipping']['shipping_address_1']);
+unset($fields['shipping']['shipping_address_2']);
+unset($fields['shipping']['shipping_city']);
+unset($fields['shipping']['shipping_postcode']);
+unset($fields['shipping']['shipping_country']);
+unset($fields['shipping']['shipping_state']);
+unset($fields['account']['account_username']);
+unset($fields['account']['account_password']);
+unset($fields['account']['account_password-2']);
+unset($fields['order']['order_comments']);
+
+     return $fields;
+}
+
+/**
+ * @desc Remove in all product type
+ */
+function wc_remove_all_quantity_fields( $return, $product ) {
+    return true;
+}
+add_filter( 'woocommerce_is_sold_individually', 'wc_remove_all_quantity_fields', 10, 2 );
 
