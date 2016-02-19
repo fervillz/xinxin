@@ -20,7 +20,6 @@
 			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', THEME_DOMAIN ), THEME_DOMAIN, '<a href="http://fernandovillamorjr.com" rel="designer">fernan villamor jr</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-	</div><!-- .row -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

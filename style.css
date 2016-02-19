@@ -46,7 +46,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html {
-  font-family: sans-serif;
+  font-family: "Roboto Slab", serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -270,7 +270,7 @@ input,
 select,
 textarea {
   color: #1e3a78;
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: normal;
@@ -278,7 +278,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 h1 a,
 h1 a:visited, h2 a,
@@ -287,7 +287,7 @@ h3 a:visited, h4 a,
 h4 a:visited, h5 a,
 h5 a:visited, h6 a,
 h6 a:visited {
-  color: #ffd265;
+  color: #f2ea90;
 }
 
 p {
@@ -357,10 +357,34 @@ big {
 # Header
 --------------------------------------------------------------*/
 .site-branding {
-  max-width: 130px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.site-branding h1,
+.site-branding h2 {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100%;
 }
 .site-branding .site-title {
-  margin: 0;
+  font-size: 24px;
+  letter-spacing: -1px;
+}
+.site-branding .site-title a {
+  color: #fff;
+}
+.site-branding .site-description {
+  color: #fff;
+  font-weight: 300;
+  font-size: 12px;
 }
 .site-branding a {
   display: block;
@@ -372,6 +396,21 @@ big {
     margin: auto;
     margin-top: 20px;
   }
+}
+
+.site-support {
+  display: inline-block;
+  width: 100%;
+}
+.site-support .social {
+  text-align: right;
+}
+.site-support .social ul {
+  list-style-type: none;
+}
+.site-support .social .social-items {
+  display: inline-block;
+  width: 32px;
 }
 
 .topheader {
@@ -494,12 +533,21 @@ big {
   margin-bottom: 7px;
 }
 .site-footer .social a .social-title {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-left: 12px;
 }
 .site-footer .social a i.fa {
   color: #fff;
   font-size: 18px;
+}
+
+/*--------------------------------------------------------------
+# Slider
+--------------------------------------------------------------*/
+.offset-top-x {
+  margin-top: -200px;
+  position: relative;
+  z-index: -1;
 }
 
 /*--------------------------------------------------------------
@@ -762,7 +810,6 @@ a:hover, a:active {
   font-size: 14px;
   text-transform: capitalize;
   text-align: center;
-  margin-left: 3px;
 }
 
 /* Small menu. */
@@ -1964,10 +2011,6 @@ object {
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
-.slider {
-  border: 4px solid #284fa0;
-}
-
 /*--------------------------------------------------------------
 # Blocks
 --------------------------------------------------------------*/

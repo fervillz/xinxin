@@ -1,9 +1,9 @@
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
-	font-family: 'Roboto Slab', serif;
+	font-family: $font__primary;
 
 	a,
 	a:visited {
-		color: #ffd265;
+		color: $color__primary;
 	}
 }

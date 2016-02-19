@@ -1,8 +1,29 @@
 .site-branding {
-	max-width: 130px;
+	display: flex;
+	align-items: center;
+
+	h1,
+	h2 {
+		font-family: $font__seconday;	
+		margin: 0;
+		padding: 0;	
+		text-transform: uppercase;
+		width: 100%;
+	}
 
 	.site-title {
-		margin: 0;
+		font-size: 24px;
+		letter-spacing: -1px;
+
+		a {
+			color: $color__white;
+		}
+	}
+
+	.site-description {
+		color: $color__white;
+		font-weight: 300;
+		font-size: 12px;
 	}
 
 	a {
@@ -14,6 +35,24 @@
 		max-width: 200px;
 		margin: auto;
 		margin-top: 20px;
+	}
+}
+
+.site-support {
+	display: inline-block;
+	width: 100%;
+
+	.social {
+		text-align: right;
+
+		ul {
+			list-style-type: none;
+		}
+
+		.social-items {
+			display: inline-block;
+			width: 32px;
+		}
 	}
 }
 

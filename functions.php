@@ -122,17 +122,21 @@ function xinxin_scripts() {
 	
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri().'/font-awesome/css/font-awesome.min.css' );
 
-	wp_enqueue_style( 'sosimple-fonts', xinxin_fonts_url(), array(), null );
+	wp_enqueue_script( 'xinxin-navigation', get_template_directory_uri() . '/scripts/navigation.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'xinxin-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'xinxin-navigation', get_template_directory_uri() . '/scripts/woocommerce.js', array(), false, true );
 
-	wp_enqueue_script( 'xinxin-navigation', get_template_directory_uri() . '/js/woocommerce.js', array(), false, true );
-
-	wp_enqueue_script( 'xinxin-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'xinxin-skip-link-focus-fix', get_template_directory_uri() . '/scripts/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	//google fonts
+	$query_args = array(
+		'family' => 'Roboto:400,300,500,700,300italic|Roboto+Slab:400,700'
+	);
+	wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
 }
 add_action( 'wp_enqueue_scripts', 'xinxin_scripts' );
 
@@ -142,7 +146,7 @@ add_action( 'wp_enqueue_scripts', 'xinxin_scripts' );
  */
 function xinxin_customize_control_js() {
 	wp_enqueue_style( 'customizer', get_template_directory_uri().'/customizer.css' );
-	wp_enqueue_script( 'xinxin_customizer_controls', get_template_directory_uri() . '/js/active-callback.js', array( 'customize-controls' ), false, true );
+	wp_enqueue_script( 'xinxin_customizer_controls', get_template_directory_uri() . '/scripts/active-callback.js', array( 'customize-controls' ), false, true );
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri().'/font-awesome/css/font-awesome.min.css' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'xinxin_customize_control_js' );
@@ -152,48 +156,10 @@ add_action( 'customize_controls_enqueue_scripts', 'xinxin_customize_control_js' 
  */
 function xinxin_customize_preview_js() {
 
-    wp_enqueue_script( 'xinxin_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), false, true );
+    wp_enqueue_script( 'xinxin_customizer', get_template_directory_uri() . '/scripts/customizer.js', array( 'customize-preview' ), false, true );
 
 }
 add_action( 'customize_preview_init', 'xinxin_customize_preview_js' );
-
-/**
- * Register Google Fonts
- */
-function xinxin_fonts_url() {
-    $fonts_url = '';
-
-	/* Translators: If there are characters in your language that are not
-	 * supported by Roboto Slab, translate this to 'off'. Do not translate
-	 * into your own language.
-	 */
-	$robotoslab = _x( 'on', 'Roboto Slab font: on or off', THEME_DOMAIN );
-
-	if ( 'off' !== $robotoslab  ) {
-
-		$font_families = array();
-		$font_families[] = 'Roboto+Slab:400,700';
-
-		$query_args = array(
-			'family' => implode( '|', $font_families ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
-
-		$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
-	}
-
-	return $fonts_url;
-
-}
-/**
- * Enqueue Google Fonts for custom headers
- */
-function xinxin_admin_styles() {
-
-	wp_enqueue_style( 'xinxin-fonts', xinxin_fonts_url(), array(), null );
-
-}
-add_action( 'admin_print_styles-appearance_page_custom-header', 'xinxin_admin_styles' );
 
 /**
  * Get the first image in post

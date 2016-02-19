@@ -77,7 +77,7 @@ function xx_columns_content($column_name, $post_ID) {
         if ($post_featured_image) {
             echo '<img src="' . $post_featured_image . '" />';
         }
-    }
+    } 
 
     if ($column_name == 'content') {
         $post_featured_content= xx_get_featured_content($post_ID);

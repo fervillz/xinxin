@@ -21,13 +21,42 @@
 </head>
 
 <body <?php body_class();?>>
-<div id="page" class="site container <?php if ( get_theme_mod( 'xx_guide', 1 )) { echo "help-on";} ?>">
-<div class="row">
+<div id="page" class="site <?php if ( get_theme_mod( 'xx_guide', 1 )) { echo "help-on";} ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', THEME_DOMAIN ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 	<div class="container">
 	<div class="row">
+
+		
+		<div class="site-support">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+				<div class="support">
+					<span class="email">
+						<i class="fa fa-envelope"></i>
+						<span class="email-text">info@website.com</span>
+					</span>
+					<span class="phone">
+						<i class="fa fa-phone"></i>
+						<span class="email-text">+639 000 0000 000</span>
+					</span>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pull-right">
+				<div class="social">
+					<ul class="links">
+						<li class="social-items"><a href="#" id=""><i class="fa fa-facebook"></i></a></li>
+						<li class="social-items"><a href="#" id=""><i class="fa fa-twitter"></i></a></li>
+						<li class="social-items"><a href="#" id=""><i class="fa fa-linkedin"></i></a></li>
+						<li class="social-items"><a href="#" id=""><i class="fa fa-google-plus"></i></a></li>
+						<li class="social-items"><a href="#" id=""><i class="fa fa-dribbble"></i></a></li>
+						<li class="social-items search-item"><a href="#" id=""><i class="fa fa-search"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			
+		</div><!-- .secondary-navigation -->
+
 		<div class="site-branding">
 			<?php if ( function_exists( 'jetpack_the_site_logo' ) ) jetpack_the_site_logo(); ?>
 			
@@ -65,7 +94,7 @@
 	<?php endif; ?>
 
 	<?php if (is_home()): ?>
-		<div class="slider big">
+		<div class="xx_slider big offset-top-x">
 			<?php get_template_part( 'lib/frontend/slider', ''); ?>
 		</div><!-- >header-img -->
 	<?php endif; ?>
