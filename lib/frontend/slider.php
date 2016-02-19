@@ -4,26 +4,50 @@
 $args = array (
 	'post_type'              => array( 'slider' ),
 	'post_status'            => array( 'publish' ),
-	'order'                  => 'ASC',
+	'order'                  => 'DESC',
 	'orderby'                => 'id',
 );
 
 // The Query
 $query = new WP_Query( $args );
+?>
+<div class="owl-carousel">
 
-// The Loop
-if ( $query->have_posts() ) {
-	while ( $query->have_posts() ) {
-		$query->the_post();
-		the_title( );
-		the_post_thumbnail();
-		the_content( );
-	}
-} else {
-	echo "no post found";
-}
+<?php if ( $query->have_posts() ): ?>
+	
+	<?php while ( $query->have_posts() ) :?>
+		<div class="item">
+			<?php $query->the_post(); ?>
+			
+			<div class="slider-big text-inside">
+				<div class="slider-thumbnail black-overlay">
+					<?php if (has_post_thumbnail())
+						the_post_thumbnail();
+					?>
+				</div>
+				<div class="slider-content">
+					<div class="container">
+						<div class="slider-title">
+							<?php the_title('<h2>','</h2>'); ?>
+						</div>
+						<div class="slider-desc">
+							<?php the_content( ); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php endwhile; ?>
 
+<?php else : ?>
+	<?php echo "no post found"; ?>
+<?php endif; ?>
+
+<?php
 // Restore original Post Data
 wp_reset_postdata();
 
  ?>
+
+
+</div>

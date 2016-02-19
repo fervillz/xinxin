@@ -49,3 +49,5 @@ Temporary Items
 # Theme
 node_modules
 *.scssc
+sass/.cache-location/03c724bc7db4aa5bf7f9210c2e8df61b4372fdc9/_menus.scssc
+*.scssc

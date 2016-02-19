@@ -25,62 +25,66 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', THEME_DOMAIN ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-	<div class="container">
-	<div class="row">
-
-		
 		<div class="site-support">
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				<div class="support">
-					<span class="email">
-						<i class="fa fa-envelope"></i>
-						<span class="email-text">info@website.com</span>
-					</span>
-					<span class="phone">
-						<i class="fa fa-phone"></i>
-						<span class="email-text">+639 000 0000 000</span>
-					</span>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<div class="support">
+							<span class="email">
+								<i class="fa fa-envelope"></i>
+								<span class="email-text">info@website.com</span>
+							</span>
+							<span class="phone">
+								<i class="fa fa-phone"></i>
+								<span class="email-text">+639 000 0000 000</span>
+							</span>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pull-right">
+						<div class="social">
+							<ul class="links">
+								<li class="social-items"><a href="#" id=""><i class="fa fa-facebook"></i></a></li>
+								<li class="social-items"><a href="#" id=""><i class="fa fa-twitter"></i></a></li>
+								<li class="social-items"><a href="#" id=""><i class="fa fa-linkedin"></i></a></li>
+								<li class="social-items"><a href="#" id=""><i class="fa fa-google-plus"></i></a></li>
+								<li class="social-items"><a href="#" id=""><i class="fa fa-dribbble"></i></a></li>
+								<li class="social-items search-item"><a href="#" id=""><i class="fa fa-search"></i></a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pull-right">
-				<div class="social">
-					<ul class="links">
-						<li class="social-items"><a href="#" id=""><i class="fa fa-facebook"></i></a></li>
-						<li class="social-items"><a href="#" id=""><i class="fa fa-twitter"></i></a></li>
-						<li class="social-items"><a href="#" id=""><i class="fa fa-linkedin"></i></a></li>
-						<li class="social-items"><a href="#" id=""><i class="fa fa-google-plus"></i></a></li>
-						<li class="social-items"><a href="#" id=""><i class="fa fa-dribbble"></i></a></li>
-						<li class="social-items search-item"><a href="#" id=""><i class="fa fa-search"></i></a></li>
-					</ul>
-				</div>
-			</div>
-			
+			</div>	
 		</div><!-- .secondary-navigation -->
 
-		<div class="site-branding">
-			<?php if ( function_exists( 'jetpack_the_site_logo' ) ) jetpack_the_site_logo(); ?>
-			
-			<?php if ( get_theme_mod( 'xinxin_logo' ) ) : ?>
-		    
-		    <div class='site-logo'>
-		        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'xinxin_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
-		    </div>
-			<?php else : ?>
-			    <hgroup>
-			        <h1 class='site-title'><a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><?php bloginfo( 'name' ); ?></a></h1>
-			        <h2 class='site-description'><?php bloginfo( 'description' ); ?></h2>
-			    </hgroup>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		
-	
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', THEME_DOMAIN ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</div><!-- .row -->
-	</div><!-- .container -->
+		<div class="header-primary">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+						<div class="site-branding">
+							<?php if ( function_exists( 'jetpack_the_site_logo' ) ) jetpack_the_site_logo(); ?>
+							
+							<?php if ( get_theme_mod( 'xinxin_logo' ) ) : ?>
+						    
+						    <div class='site-logo'>
+						        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'xinxin_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
+						    </div>
+							<?php else : ?>
+							    <hgroup>
+							        <h1 class='site-title'><a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><?php bloginfo( 'name' ); ?></a></h1>
+							        <h2 class='site-description'><?php bloginfo( 'description' ); ?></h2>
+							    </hgroup>
+							<?php endif; ?>
+						</div><!-- .site-branding -->
+					</div>	
+				
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+						<nav id="site-navigation" class="main-navigation" role="navigation">
+							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+						</nav><!-- #site-navigation -->	
+					</div>
+				</div>
+			</div>
+		</div><!-- .header-primary -->
 	</header><!-- #masthead -->
 
 	<?php if (is_home()): ?>
