@@ -356,16 +356,6 @@ big {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-.site-branding {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
 .site-branding h1,
 .site-branding h2 {
   font-family: "Roboto", sans-serif;
