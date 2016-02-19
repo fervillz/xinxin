@@ -23,7 +23,7 @@
 <body <?php body_class();?>>
 <div id="page" class="site container <?php if ( get_theme_mod( 'xx_guide', 1 )) { echo "help-on";} ?>">
 <div class="row">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'xinxin' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', THEME_DOMAIN ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 	<div class="container">
@@ -47,7 +47,7 @@
 		
 	
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'xinxin' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', THEME_DOMAIN ); ?></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav><!-- #site-navigation -->
 	</div><!-- .row -->

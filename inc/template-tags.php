@@ -20,15 +20,15 @@ function the_posts_navigation() {
 	}
 	?>
 	<nav class="navigation posts-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'xinxin' ); ?></h2>
+		<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', THEME_DOMAIN ); ?></h2>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', 'xinxin' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', THEME_DOMAIN ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', 'xinxin' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', THEME_DOMAIN ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -76,28 +76,28 @@ function xinxin_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'xinxin' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', THEME_DOMAIN ) );
 		if ( $categories_list && xinxin_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'xinxin' ) . '</span>', $categories_list ); // WPCS: Xxx OK.
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', THEME_DOMAIN ) . '</span>', $categories_list ); // WPCS: Xxx OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'xinxin' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', THEME_DOMAIN ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'xinxin' ) . '</span>', $tags_list ); // WPCS: Xxx OK.
+			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', THEME_DOMAIN ) . '</span>', $tags_list ); // WPCS: Xxx OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'xinxin' ), esc_html__( '1 Comment', 'xinxin' ), esc_html__( '% Comments', 'xinxin' ) );
+		comments_popup_link( esc_html__( 'Leave a comment', THEME_DOMAIN ), esc_html__( '1 Comment', THEME_DOMAIN ), esc_html__( '% Comments', THEME_DOMAIN ) );
 		echo '</span>';
 	}
 
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'xinxin' ),
+			esc_html__( 'Edit %s', THEME_DOMAIN ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',

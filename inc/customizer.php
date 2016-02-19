@@ -46,8 +46,8 @@ function xinxin_guide( $wp_customize ) {
      $wp_customize->add_section(
     'xx_help',
     array(
-        'title' => esc_attr('Help', 'xinxin'),
-        'description' => esc_attr('A guide for beginners', 'xinxin' ),
+        'title' => esc_attr('Help', THEME_DOMAIN),
+        'description' => esc_attr('A guide for beginners', THEME_DOMAIN ),
         'priority' => 1,
     )
     );
@@ -65,7 +65,7 @@ function xinxin_guide( $wp_customize ) {
         'xx_guide',
         array(
             'type' => 'checkbox',
-            'label' => esc_attr('Guide', 'xinxin' ),
+            'label' => esc_attr('Guide', THEME_DOMAIN ),
             'description' => 'Check to see which part of the site you are editing',
             'section' => 'xx_help',
         )
@@ -77,9 +77,9 @@ function xinxin_builtin( $wp_customize ) {
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
     $wp_customize->add_section( 'xinxin_logo_section' , array(
-    'title'       => esc_attr( 'Logo', 'xinxin' ),
+    'title'       => esc_attr( 'Logo', THEME_DOMAIN ),
     'priority'    => 30,
-    'description' => esc_attr('Upload a logo to replace the default site name and description in the more', 'xinxin' ),
+    'description' => esc_attr('Upload a logo to replace the default site name and description in the more', THEME_DOMAIN ),
     ) );
 }
 
@@ -90,7 +90,7 @@ function xinxin_logo( $wp_customize ) {
     );
 
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'xinxin_logo', array(
-        'label'    => esc_attr( 'Logo', 'xinxin' ),
+        'label'    => esc_attr( 'Logo', THEME_DOMAIN ),
         'section'  => 'xinxin_logo_section',
         'settings' => 'xinxin_logo',
         'sanitize_callback' => 'esc_url_raw',
@@ -101,8 +101,8 @@ function xinxin_readmore( $wp_customize ) {
      $wp_customize->add_section(
     'more_options',
     array(
-        'title' => esc_attr('More Link Options', 'xinxin'),
-        'description' => esc_attr('Customize your read more link', 'xinxin' ),
+        'title' => esc_attr('More Link Options', THEME_DOMAIN),
+        'description' => esc_attr('Customize your read more link', THEME_DOMAIN ),
         'priority' => 1,
     )
     );
@@ -119,7 +119,7 @@ function xinxin_readmore( $wp_customize ) {
         'xx_excerpt_type',
         array(
             'type' => 'select',
-            'label' => esc_attr('Excerpt type', 'xinxin' ),
+            'label' => esc_attr('Excerpt type', THEME_DOMAIN ),
             'section' => 'more_options',
             'choices' => array(
                 'option1' => 'More Tag',
@@ -141,7 +141,7 @@ function xinxin_readmore( $wp_customize ) {
         'xx_more_type',
         array(
             'type' => 'select',
-            'label' => esc_attr('Read More Type', 'xinxin' ),
+            'label' => esc_attr('Read More Type', THEME_DOMAIN ),
             'section' => 'more_options',
             'choices' => array(
                 'option1' => 'None',
@@ -163,7 +163,7 @@ function xinxin_readmore( $wp_customize ) {
     $wp_customize->add_control(
         'xx_more_text',
         array(
-            'label' => esc_attr('Read More Text', 'xinxin' ),
+            'label' => esc_attr('Read More Text', THEME_DOMAIN ),
             'section' => 'more_options',
         )
     );
@@ -183,8 +183,8 @@ function xinxin_readmore( $wp_customize ) {
         'xx_more_position',
         array(
             'type' => 'select',
-            'label' => esc_attr('Read More Position', 'xinxin' ),
-            'description' => esc_attr('Only works if read more type is button', 'xinxin' ),
+            'label' => esc_attr('Read More Position', THEME_DOMAIN ),
+            'description' => esc_attr('Only works if read more type is button', THEME_DOMAIN ),
             'section' => 'more_options',
             'choices' => array(
                 'left' => 'Left',
@@ -207,7 +207,7 @@ function xinxin_readmore( $wp_customize ) {
         'xx_more_button',
         array(
             'type' => 'select',
-            'label' => esc_attr('Read More Button Style', 'xinxin' ),
+            'label' => esc_attr('Read More Button Style', THEME_DOMAIN ),
             'section' => 'more_options',
             'choices' => array(
                 'option1' => 'Sharp Edges',
@@ -229,7 +229,7 @@ function xinxin_readmore( $wp_customize ) {
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 
         'xx_button_bg', 
         array(
-            'label' => esc_attr( 'Button Background Color', 'xinxin' ),
+            'label' => esc_attr( 'Button Background Color', THEME_DOMAIN ),
             'section' => 'more_options',
     ) ) );
 
@@ -247,7 +247,7 @@ function xinxin_readmore( $wp_customize ) {
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 
         'xx_text_color', 
         array(
-            'label' => esc_attr( 'Button Text Color', 'xinxin' ),
+            'label' => esc_attr( 'Button Text Color', THEME_DOMAIN ),
             'section' => 'more_options',
     ) ) );
 
@@ -262,7 +262,7 @@ function xinxin_readmore( $wp_customize ) {
 
 function xinxin_test1( $wp_customize ) {
         $wp_customize->add_section('section_template_archive' , array(
-        'title'             => __('Archive Pages', 'xinxin'),
+        'title'             => __('Archive Pages', THEME_DOMAIN),
         'priority'          => 60
     ));
 
@@ -276,10 +276,10 @@ function xinxin_test1( $wp_customize ) {
     ));
 
     $wp_customize->add_control('archive_link_tile_size', array(
-        'label'         => __('Link tile size', 'xinxin'),
+        'label'         => __('Link tile size', THEME_DOMAIN),
         'section'       => 'section_template_archive',
         'type'          => 'checkbox',
-        'description'   => __('The size of link tile that you wish to dsipay on archive pages.', 'xinxin'),
+        'description'   => __('The size of link tile that you wish to dsipay on archive pages.', THEME_DOMAIN),
     ));
 
     /**
@@ -292,10 +292,10 @@ function xinxin_test1( $wp_customize ) {
     ));
 
     $wp_customize->add_control('archive_show_more_link', array(
-        'label'             => __('Show link to Link/Post', 'xinxin'),
+        'label'             => __('Show link to Link/Post', THEME_DOMAIN),
         'section'           => 'section_template_archive',
         'type'              => 'checkbox',
-        'description'       => __('Whether or not to show the \'More...\' link underneath a large link tile on archive pages.  Note that links cannot be displayed in conjunction with \'Small\' Link Tiles.', 'xinxin'),
+        'description'       => __('Whether or not to show the \'More...\' link underneath a large link tile on archive pages.  Note that links cannot be displayed in conjunction with \'Small\' Link Tiles.', THEME_DOMAIN),
         'active_callback'   => '_check_is_link_tile_size_large'
     ));
 
@@ -347,8 +347,8 @@ function xinxin_customize_entry_meta( $wp_customize ) {
     $wp_customize->add_section(
     'entry_meta_options',
     array(
-        'title' => esc_attr('Entry Meta Options', 'xinxin'),
-        'description' => esc_attr('Customize your read more link', 'xinxin' ),
+        'title' => esc_attr('Entry Meta Options', THEME_DOMAIN),
+        'description' => esc_attr('Customize your read more link', THEME_DOMAIN ),
         'priority' => 1,
     )
     );
@@ -365,8 +365,8 @@ function xinxin_customize_entry_meta( $wp_customize ) {
         'xx_entry_meta_type',
         array(
             'type' => 'checkbox',
-            'label' => esc_attr('Replace entry meta with icons', 'xinxin' ),
-            'description' => esc_attr('If Checked, default text will be replace with icons. Entry meta are the information below the post title (ie: admin ) for post author or (ie: 12/02/2016) for post date', 'xinxin' ),
+            'label' => esc_attr('Replace entry meta with icons', THEME_DOMAIN ),
+            'description' => esc_attr('If Checked, default text will be replace with icons. Entry meta are the information below the post title (ie: admin ) for post author or (ie: 12/02/2016) for post date', THEME_DOMAIN ),
             'section' => 'entry_meta_options',
         )
     );
@@ -389,7 +389,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
         'xx_date_icon',
         array(
             'type' => 'radio',
-            'label' => esc_attr('Date/Time Icon', 'xinxin' ),
+            'label' => esc_attr('Date/Time Icon', THEME_DOMAIN ),
             'description' => esc_attr('' ),
             'section' => 'entry_meta_options',
             'active_callback'   => 'xx_meta_callback',
@@ -424,7 +424,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
         'xx_author_icon',
         array(
             'type' => 'radio',
-            'label' => esc_attr('Author Icon', 'xinxin' ),
+            'label' => esc_attr('Author Icon', THEME_DOMAIN ),
             'description' => esc_attr('' ),
             'section' => 'entry_meta_options',
             'active_callback'   => 'xx_meta_callback',

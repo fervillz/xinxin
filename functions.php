@@ -7,6 +7,8 @@
  * @package xinxin
  */
 
+define( 'THEME_DOMAIN', 'xinxi' );
+
 if ( ! function_exists( 'xinxin_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -20,9 +22,9 @@ function xinxin_setup() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on xinxin, use a find and replace
-	 * to change 'xinxin' to the name of your theme in all the template files.
+	 * to change THEME_DOMAIN to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'xinxin', get_template_directory() . '/languages' );
+	load_theme_textdomain( THEME_DOMAIN, get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -41,10 +43,11 @@ function xinxin_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_image_size('featured_preview', 55, 55, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'xinxin' ),
+		'primary' => esc_html__( 'Primary', THEME_DOMAIN ),
 	) );
 
 	/*
@@ -99,7 +102,7 @@ add_action( 'after_setup_theme', 'xinxin_content_width', 0 );
  */
 function xinxin_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'xinxin' ),
+		'name'          => esc_html__( 'Sidebar', THEME_DOMAIN ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -163,7 +166,7 @@ function xinxin_fonts_url() {
 	 * supported by Roboto Slab, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$robotoslab = _x( 'on', 'Roboto Slab font: on or off', 'xinxin' );
+	$robotoslab = _x( 'on', 'Roboto Slab font: on or off', THEME_DOMAIN );
 
 	if ( 'off' !== $robotoslab  ) {
 
@@ -206,6 +209,22 @@ function catch_that_image() {
 	$first_img = "/path/to/default.png";
 	}
 	return $first_img;
+}
+
+// GET FEATURED IMAGE
+function xx_get_featured_image($post_ID) {
+    $post_thumbnail_id = get_post_thumbnail_id($post_ID);
+    if ($post_thumbnail_id) {
+        $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'featured_preview');
+        return $post_thumbnail_img[0];
+    }
+}
+
+// GET FEATURED content
+function xx_get_featured_content($post_ID) {
+    $content_post = get_post($post_ID);
+	$content = $content_post->post_content;
+	return wp_trim_words( $content, 17 );
 }
 
 /**

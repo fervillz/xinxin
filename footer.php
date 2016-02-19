@@ -15,9 +15,9 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'xinxin' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'xinxin' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', THEME_DOMAIN ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', THEME_DOMAIN ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'xinxin' ), 'xinxin', '<a href="http://fernandovillamorjr.com" rel="designer">fernan villamor jr</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', THEME_DOMAIN ), THEME_DOMAIN, '<a href="http://fernandovillamorjr.com" rel="designer">fernan villamor jr</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	</div><!-- .row -->
