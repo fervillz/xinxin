@@ -7,7 +7,7 @@
  * @package xinxin
  */
 
-define( 'THEME_DOMAIN', 'xinxi' );
+define( 'THEME_DOMAIN', 'xinxin' );
 
 if ( ! function_exists( 'xinxin_setup' ) ) :
 /**
@@ -44,6 +44,7 @@ function xinxin_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size('featured_preview', 55, 55, true);
+	add_image_size( 'slider-image', 1880, 917, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -119,7 +120,7 @@ add_action( 'widgets_init', 'xinxin_widgets_init' );
  */
 function xinxin_scripts() {
 	wp_enqueue_style( 'xinxin-style', get_stylesheet_uri() );
-	
+
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri().'/font-awesome/css/font-awesome.min.css' );
 	wp_enqueue_script( 'xx_scripts', get_template_directory_uri() . '/scripts/owl.carousel.min.js', array('jquery'), '20120206', true );
 	wp_enqueue_script( 'owl', get_template_directory_uri() . '/scripts/scripts.js', array('jquery'), '20120206', true );
@@ -220,10 +221,7 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Load custom postypes
  */
-require get_template_directory() . '/lib/slider.php';
-
-
-
+require get_template_directory() . '/lib/slider-settings.php';
 /*
 	Usage: book_get_meta( 'book_title' )
 	Usage: book_get_meta( 'book_author' )
@@ -235,7 +233,7 @@ require get_template_directory() . '/lib/slider.php';
 add_filter( 'woocommerce_checkout_fields' , 'woo_remove_billing_checkout_fields' );
 
 function woo_remove_billing_checkout_fields( $fields ) {
-    	
+
     	unset($fields['billing']['billing_first_name']);
 unset($fields['billing']['billing_last_name']);
 unset($fields['billing']['billing_company']);

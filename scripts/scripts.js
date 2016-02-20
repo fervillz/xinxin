@@ -117,22 +117,13 @@ jQuery( document ).ready( function ( $ ) {
 	scriptRun.run();
 	scriptRun.watch();
 
-	$('.entry-slider').owlCarousel({
-		loop: true,
-		items: 1,
-		nav: true,
-		autoplay: 1,
-		autoplayHoverPause: 1,
-		navText: ["<i class='fa fa-arrow-left'></i>", "<i class='fa fa-arrow-right'></i>"]
-	});
-
-
 	var owl = $(".owl-carousel");
 
 	owl.owlCarousel({
 		loop: true,
 		responsiveRefreshRate: 1,
 		//autoplay:true,
+		lazyLoad : true,
 	    autoplayTimeout:5000,
 	    autoplayHoverPause:true,
 	    responsive:{
@@ -152,4 +143,5 @@ jQuery( document ).ready( function ( $ ) {
 	 	 margin: 0,
 	 	 navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
 	});
+	
 });

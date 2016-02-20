@@ -46,10 +46,14 @@ a {
 	transition: 300ms;
 }
 
+*:hover,
+*:active {
+	transition: 150ms;
+}
+
 a:active,
 a:hover {
-	outline: 0;
-	transition: 150ms;
+	outline: 0;	
 }
 
 abbr[title] {

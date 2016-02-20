@@ -21,7 +21,7 @@
 </head>
 
 <body <?php body_class();?>>
-<div id="page" class="site <?php if ( get_theme_mod( 'xx_guide', 1 )) { echo "help-on";} ?>">
+<div id="page" class="site-content <?php if ( get_theme_mod( 'xx_guide', 1 )) { echo "help-on";} ?>">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', THEME_DOMAIN ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
@@ -53,7 +53,7 @@
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div><!-- .secondary-navigation -->
 
 		<div class="header-primary">
@@ -62,11 +62,11 @@
 					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 						<div class="site-branding">
 							<?php if ( function_exists( 'jetpack_the_site_logo' ) ) jetpack_the_site_logo(); ?>
-							
-							<?php if ( get_theme_mod( 'xinxin_logo' ) ) : ?>
-						    
+
+							<?php if ( get_theme_mod( THEME_DOMAIN.'_logo' ) ) : ?>
+
 						    <div class='site-logo'>
-						        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'xinxin_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
+						        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( THEME_DOMAIN.'_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
 						    </div>
 							<?php else : ?>
 							    <hgroup>
@@ -75,12 +75,12 @@
 							    </hgroup>
 							<?php endif; ?>
 						</div><!-- .site-branding -->
-					</div>	
-				
+					</div>
+
 					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 						<nav id="site-navigation" class="main-navigation" role="navigation">
 							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-						</nav><!-- #site-navigation -->	
+						</nav><!-- #site-navigation -->
 					</div>
 				</div>
 			</div>
@@ -101,6 +101,17 @@
 		<div class="xx_slider big offset-top-x">
 			<?php get_template_part( 'lib/frontend/slider', ''); ?>
 		</div><!-- >header-img -->
+
+		<div class="quick-search">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<?php get_search_form(); ?>
+					</div>
+				</div>
+			</div>
+		</div><!-- .quick-search -->
 	<?php endif; ?>
 
 	<div id="content" class="site-content">
+

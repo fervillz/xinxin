@@ -22,7 +22,11 @@ $query = new WP_Query( $args );
 			<div class="slider-big text-inside">
 				<div class="slider-thumbnail black-overlay">
 					<?php if (has_post_thumbnail())
-						the_post_thumbnail();
+						the_post_thumbnail('slider-image');
+
+						else {
+							echo "<img src='". get_template_directory_uri(). "/images/demo-slider1.jpg' alt='xinxin demo image slider'>";
+						}
 					?>
 				</div>
 				<div class="slider-content">

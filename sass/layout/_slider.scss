@@ -1,12 +1,13 @@
-.offset-top-x {
-	margin-top: -200px;
-	position: relative;
+.xx_slider {
+	position: absolute;
+	top: 0;
 	z-index: 1;
+	max-width: 100%;
 }
 
 .slider-thumbnail {
 	position: relative;
-	
+
 	&.black-overlay:before {
 		content: "";
 		position: absolute;
@@ -20,7 +21,7 @@
 
 .slider-desc {
 	font-size: 95%;
-	font-weight: 300;	
+	font-weight: 300;
 }
 
 .slider-content {
