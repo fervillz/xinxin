@@ -41,7 +41,7 @@ template {
 	display: none;
 }
 
-a {
+a, *{
 	background-color: transparent;
 	transition: 300ms;
 }
@@ -53,7 +53,7 @@ a {
 
 a:active,
 a:hover {
-	outline: 0;	
+	outline: 0;
 }
 
 abbr[title] {
@@ -176,7 +176,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	-webkit-appearance: button;
+	appearance: button;
 	cursor: pointer;
 }
 

@@ -5,7 +5,6 @@
  */
 
 ( function( $ ) {
-
 	$( 'body' ).addClass( 'customizer' );
 
 	var elementhighlight = 'elementhighlight';
@@ -15,7 +14,7 @@
 		value.bind( function( to ) {
 			if ( ('blank' === to) || ( false === to) ) {
 				$( '#page' ).removeClass( 'help-on' );
-			} 
+			}
 			else {
 				$( '#page' ).addClass( 'help-on' );
 			}
@@ -55,13 +54,13 @@
 	var icondateFont;
 	wp.customize( 'xx_date_icon', function( value ) {
 		value.bind( function( to ) {
-			
+
 			switch( to.toString().toLowerCase() ) {
- 
+
             case 'fa-calendar':
                 icondateFont = 'fa-calendar';
                 break;
- 
+
 			case 'fa-calendar-check-o':
 				icondateFont = 'fa-calendar-check-o';
 				break;
@@ -85,11 +84,11 @@
 			case 'fa-clock-o':
 				icondateFont = 'fa-clock-o';
 				break;
- 
+
             default:
                 icondateFont = 'fa-calendar';
                 break;
- 
+
         }
 
         $( 'span.posted-on i' ).attr('class','fa '+icondateFont);
@@ -104,13 +103,13 @@
 	var iconauthorFont;
 	wp.customize( 'xx_author_icon', function( value ) {
 		value.bind( function( to ) {
-			
+
 			switch( to.toString().toLowerCase() ) {
- 
+
             case 'fa-user':
                 iconauthorFont = 'fa-user';
                 break;
- 
+
 			case 'fa-pencil':
 				iconauthorFont = 'fa-pencil';
 				break;
@@ -126,11 +125,11 @@
             default:
                 iconauthorFont = 'fa-user';
                 break;
- 
+
         }
 
         $( 'span.byline i' ).attr('class','fa '+iconauthorFont);
-				
+
 		} );
 	} );
 
@@ -138,37 +137,60 @@
 	var sFont;
 	wp.customize( 'font_family', function( value ) {
     value.bind( function( to ) {
- 
+
         switch( to.toString().toLowerCase() ) {
- 
+
             case 'times':
                 sFont = 'Times New Roman';
                 break;
- 
+
             case 'arial':
                 sFont = 'Arial';
                 break;
- 
+
             case 'courier':
                 sFont = 'Courier New, Courier';
                 break;
- 
+
             case 'helvetica':
                 sFont = 'Helvetica';
                 break;
- 
+
             default:
                 sFont = 'Times New Roman';
                 break;
- 
+
         }
- 
+
         $( 'body' ).css({
             fontFamily: sFont
 	        });
-	 
+
 	    });
-	 
+
 	});
+
+	//logo
+	wp.customize( 'xinxin_logo', function( value ) {
+	    value.bind( function( to ) {
+	    	if ( to != "" ) {
+	    		$( 'hgroup' ).css( 'display','none');
+	    		if ( !$( '.site-branding div' ).hasClass('site-logo')) {
+	    			$( '.site-branding' ).append( '<div class="site-logo"><a href="" title="xinxin" rel="home"><img src="'+ to +'" alt="" alt="xinxin"/></a></div>');
+	    		}
+	    		else {
+	    			$( ".site-logo img" ).attr( 'src', to );
+	    		}
+	    	}
+	    	else {
+
+
+
+	    		$( 'hgroup' ).css( 'display','block');
+	    		$( ".site-logo" ).remove();
+	    	}
+	    });
+
+	} );
 
 } )( jQuery );

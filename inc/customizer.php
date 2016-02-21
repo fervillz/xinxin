@@ -12,13 +12,13 @@
  */
 
 function xinxin_customize_register( $wp_customize ) {
-    
+
     //Customizer guide
     xinxin_guide( $wp_customize );
 
     //call builtin customizer settings
     xinxin_builtin( $wp_customize );
-    
+
     //site logo
     xinxin_logo( $wp_customize );
 
@@ -33,7 +33,7 @@ function xinxin_customize_register( $wp_customize ) {
     section_typo ($wp_customize );
 
 }
-add_action( 'customize_register', 'xinxin_customize_register' );
+add_action( 'customize_register', THEME_DOMAIN.'_customize_register' );
 
 /**
 
@@ -76,24 +76,27 @@ function xinxin_guide( $wp_customize ) {
 function xinxin_builtin( $wp_customize ) {
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-    $wp_customize->add_section( 'xinxin_logo_section' , array(
+}
+
+function xinxin_logo( $wp_customize ) {
+
+    $wp_customize->add_section( THEME_DOMAIN.'_logo_section' , array(
     'title'       => esc_attr( 'Logo', THEME_DOMAIN ),
     'priority'    => 30,
     'description' => esc_attr('Upload a logo to replace the default site name and description in the more', THEME_DOMAIN ),
     ) );
-}
 
-function xinxin_logo( $wp_customize ) {
-    
-    $wp_customize->add_setting( 'xinxin_logo',
-        'sanitize_callback' == 'esc_url_raw'
+    $wp_customize->add_setting( THEME_DOMAIN.'_logo',
+        array(
+            'transport' => 'postMessage'
+        )
+
     );
 
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'xinxin_logo', array(
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, THEME_DOMAIN.'_logo', array(
         'label'    => esc_attr( 'Logo', THEME_DOMAIN ),
-        'section'  => 'xinxin_logo_section',
-        'settings' => 'xinxin_logo',
-        'sanitize_callback' => 'esc_url_raw',
+        'section'  => THEME_DOMAIN.'_logo_section',
+        'settings' => THEME_DOMAIN.'_logo',
     ) ) );
 }
 
@@ -111,7 +114,7 @@ function xinxin_readmore( $wp_customize ) {
         'xx_excerpt_type',
         array(
             'default' => 'option2',
-            'sanitize_callback' => 'xinxin_sanitize_choices',
+            'sanitize_callback' => THEME_DOMAIN.'_sanitize_choices',
         )
     );
 
@@ -133,7 +136,7 @@ function xinxin_readmore( $wp_customize ) {
         'xx_more_type',
         array(
             'default' => 'option1',
-            'sanitize_callback' => 'xinxin_sanitize_choices',
+            'sanitize_callback' => THEME_DOMAIN.'_sanitize_choices',
         )
     );
 
@@ -174,7 +177,7 @@ function xinxin_readmore( $wp_customize ) {
         'xx_more_position',
         array(
             'default' => 'option1',
-            'sanitize_callback' => 'xinxin_sanitize_choices',
+            'sanitize_callback' => THEME_DOMAIN.'_sanitize_choices',
 
         )
     );
@@ -199,7 +202,7 @@ function xinxin_readmore( $wp_customize ) {
         'xx_more_button',
         array(
             'default' => 'option1',
-            'sanitize_callback' => 'xinxin_sanitize_choices',
+            'sanitize_callback' => THEME_DOMAIN.'_sanitize_choices',
         )
     );
 
@@ -226,8 +229,8 @@ function xinxin_readmore( $wp_customize ) {
     );
 
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 
-        'xx_button_bg', 
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize,
+        'xx_button_bg',
         array(
             'label' => esc_attr( 'Button Background Color', THEME_DOMAIN ),
             'section' => 'more_options',
@@ -244,8 +247,8 @@ function xinxin_readmore( $wp_customize ) {
     );
 
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 
-        'xx_text_color', 
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize,
+        'xx_text_color',
         array(
             'label' => esc_attr( 'Button Text Color', THEME_DOMAIN ),
             'section' => 'more_options',
@@ -356,7 +359,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
     $wp_customize->add_setting(
         'xx_entry_meta_type',
         array(
-            'sanitize_callback' => 'xinxin_sanitize_choices',
+            'sanitize_callback' => THEME_DOMAIN.'_sanitize_choices',
             'transport' => 'postMessage'
         )
     );
@@ -372,7 +375,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
     );
 
     /**
-        
+
     * Date icon
 
     **/
@@ -380,7 +383,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
         'xx_date_icon',
         array(
             'default' => 'fa-calendar',
-            'sanitize_callback' => 'xinxin_sanitize_choices',
+            'sanitize_callback' => THEME_DOMAIN.'_sanitize_choices',
             'transport' => 'postMessage'
         )
     );
@@ -406,7 +409,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
     );
 
     /**
-        
+
     * Author icon
 
     **/
@@ -415,7 +418,7 @@ function xinxin_customize_entry_meta( $wp_customize ) {
         'xx_author_icon',
         array(
             'default' => 'fa-user',
-            'sanitize_callback' => 'xinxin_sanitize_choices',
+            'sanitize_callback' => THEME_DOMAIN.'_sanitize_choices',
             'transport' => 'postMessage'
         )
     );
@@ -441,8 +444,8 @@ function xinxin_customize_entry_meta( $wp_customize ) {
 
 function section_typo($wp_customize){
 
-    $wp_customize->add_section( 
-        'font_settings', 
+    $wp_customize->add_section(
+        'font_settings',
         array(
             'title' => esc_html__( 'Typography' ),
             'description' => 'Link your favorite social sites links. ',
@@ -485,9 +488,9 @@ function section_typo($wp_customize){
 
 function xinxin_sanitize_choices( $input, $setting ) {
     global $wp_customize;
- 
+
     $control = $wp_customize->get_control( $setting->id );
- 
+
     if ( array_key_exists( $input, $control->choices ) ) {
         return $input;
     } else {

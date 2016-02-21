@@ -52,7 +52,7 @@
 		&:hover > a,
 		&.focus > a {
 			color: $color__white;
-			
+
 			&:after {
 				transform: scaleX(1);
 				transition: 250ms;

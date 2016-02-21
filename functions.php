@@ -122,7 +122,7 @@ function xinxin_scripts() {
 	wp_enqueue_style( 'xinxin-style', get_stylesheet_uri() );
 
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri().'/font-awesome/css/font-awesome.min.css' );
-	wp_enqueue_script( 'xx_scripts', get_template_directory_uri() . '/scripts/owl.carousel.min.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'xx_scripts', get_template_directory_uri() . '/scripts/owl.carousel.min.js', array('jquery'), false, true );
 	wp_enqueue_script( 'owl', get_template_directory_uri() . '/scripts/scripts.js', array('jquery'), '20120206', true );
 
 	wp_enqueue_script( 'xinxin-skip-link-focus-fix', get_template_directory_uri() . '/scripts/skip-link-focus-fix.js', array(), '20130115', true );
@@ -222,6 +222,16 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load custom postypes
  */
 require get_template_directory() . '/lib/slider-settings.php';
+
+/**
+ * Load custom postypes
+ */
+require get_template_directory() . '/lib/testimonial-settings.php';
+
+
+
+
+
 /*
 	Usage: book_get_meta( 'book_title' )
 	Usage: book_get_meta( 'book_author' )

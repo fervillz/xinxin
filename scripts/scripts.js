@@ -123,7 +123,7 @@ jQuery( document ).ready( function ( $ ) {
 		loop: true,
 		responsiveRefreshRate: 1,
 		//autoplay:true,
-		lazyLoad : true,
+		//lazyLoad: 1,
 	    autoplayTimeout:5000,
 	    autoplayHoverPause:true,
 	    responsive:{
@@ -143,5 +143,15 @@ jQuery( document ).ready( function ( $ ) {
 	 	 margin: 0,
 	 	 navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"]
 	});
-	
+
+	//get slider height and use it for quick search
+	var xx_slider = $('.xx_slider').outerHeight();
+	var quick_search_top = xx_slider * .4;
+	$('.quick-search').css('top',quick_search_top);
+
+	//add fontawesome arrow to all submit button
+	$('input[type="submit"]').after('<i class="fa-right fa fa-arrow-right"></i>');
+
+	//add fontawesome arrow to all email and search text input
+	$('input[type="search"]').before('<i class="fa-left fa fa-search"></i>');
 });

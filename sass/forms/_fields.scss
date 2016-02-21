@@ -13,40 +13,19 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
-textarea {
+textarea,
+select {
 	color: $color__text-input;
 	border: 1px solid $color__border-input;
+	width: 100%;
+	padding: 14px 18px;
+	font-size: 14px;
+	border-radius: 3px;
+	line-height: normal;
+	max-width: 100%;
+	box-sizing: border-box;
 
 	&:focus {
-		color: $color__text-input-focus;
+		color: transparent;
 	}
-}
-
-select {
-	border: 1px solid $color__border-input;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"] {
-    padding: 5px 10px;
-    font-size: 13px;
-    line-height: normal;
-}
-
-textarea {
-	padding-left: 3px;
-	width: 100%;
 }

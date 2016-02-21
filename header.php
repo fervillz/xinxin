@@ -61,8 +61,6 @@
 				<div class="row">
 					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 						<div class="site-branding">
-							<?php if ( function_exists( 'jetpack_the_site_logo' ) ) jetpack_the_site_logo(); ?>
-
 							<?php if ( get_theme_mod( THEME_DOMAIN.'_logo' ) ) : ?>
 
 						    <div class='site-logo'>
@@ -95,22 +93,6 @@
 				</a>
 			<?php endif; // End header image check. ?>
 		</div><!-- >header-img -->
-	<?php endif; ?>
-
-	<?php if (is_home()): ?>
-		<div class="xx_slider big offset-top-x">
-			<?php get_template_part( 'lib/frontend/slider', ''); ?>
-		</div><!-- >header-img -->
-
-		<div class="quick-search">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<?php get_search_form(); ?>
-					</div>
-				</div>
-			</div>
-		</div><!-- .quick-search -->
 	<?php endif; ?>
 
 	<div id="content" class="site-content">

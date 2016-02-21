@@ -1,5 +1,5 @@
 /*!
-Theme Name: blank
+Theme Name: xinxin
 Theme URI: http://underscores.me/
 Author: fernan villamor jr
 Author URI: http://fernandovillamorjr.com
@@ -88,7 +88,7 @@ template {
   display: none;
 }
 
-a {
+a, * {
   background-color: transparent;
   -webkit-transition: 300ms;
           transition: 300ms;
@@ -225,7 +225,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  -webkit-appearance: button;
+  appearance: button;
   cursor: pointer;
 }
 
@@ -316,6 +316,7 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: "Roboto Slab", serif;
+  line-height: normal;
 }
 h1 a,
 h1 a:visited, h2 a,
@@ -383,7 +384,6 @@ big {
   padding: 0;
   line-height: 1.6em;
   font-size: 14px;
-  position: relative;
 }
 @media (max-width: 769px) {
   .site-content {
@@ -395,8 +395,9 @@ big {
 # Header
 --------------------------------------------------------------*/
 .site-header {
-  position: relative;
+  position: absolute;
   z-index: 2;
+  width: 100%;
 }
 
 .header-primary {
@@ -410,7 +411,9 @@ big {
       -ms-flex-align: center;
           align-items: center;
   background: transparent;
-  padding: 40px 0;
+  padding: 40px 0 0 0;
+  position: relative;
+  z-index: 0;
 }
 
 .site-branding h1,
@@ -552,8 +555,6 @@ big {
 # Slider
 --------------------------------------------------------------*/
 .xx_slider {
-  position: absolute;
-  top: 0;
   z-index: 1;
   max-width: 100%;
 }
@@ -682,33 +683,33 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
-  border-color: #ccc #ccc #bbb;
+  border: 2px solid;
+  border-color: #d6d6d6;
+  background-color: transparent;
+  color: #a9a9a9;
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 11px;
+  text-transform: uppercase;
   border-radius: 3px;
-  background: #e6e6e6;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  font-size: 0.75rem;
-  padding: .6em 1em .4em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  line-height: normal;
+  max-width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
 }
-button:hover,
+button:hover, button:active, button:focus,
 input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-  border-color: #ccc #bbb #aaa;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
-button:active, button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
+input[type="reset"]:hover,
 input[type="reset"]:active,
 input[type="reset"]:focus,
+input[type="submit"]:hover,
 input[type="submit"]:active,
 input[type="submit"]:focus {
-  border-color: #aaa #bbb #bbb;
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  border-color: #f2ea90;
+  background-color: #f2ea90;
+  color: #fff;
 }
 
 input[type="text"],
@@ -726,9 +727,17 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
-textarea {
-  color: #666;
-  border: 1px solid #b7a890;
+textarea,
+select {
+  color: #a9a9a9;
+  border: 1px solid #e5e5e5;
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 14px;
+  border-radius: 3px;
+  line-height: normal;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -745,37 +754,9 @@ input[type="time"]:focus,
 input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
-textarea:focus {
-  color: #111;
-}
-
-select {
-  border: 1px solid #b7a890;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"] {
-  padding: 5px 10px;
-  font-size: 13px;
-  line-height: normal;
-}
-
-textarea {
-  padding-left: 3px;
-  width: 100%;
+textarea:focus,
+select:focus {
+  color: transparent;
 }
 
 /*--------------------------------------------------------------
@@ -2071,11 +2052,105 @@ object {
 /*--------------------------------------------------------------
 # Search
 --------------------------------------------------------------*/
-.search input[type="text"] {
-  min-width: 200px;
+.search-form {
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
 }
-.search input[type="submit"] {
-  display: none;
+.search-form .fa {
+  top: 33%;
+  color: #000;
+  position: absolute;
+  z-index: 1;
+  width: 15px;
+}
+.search-form .form-search {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+.search-form .form-search .fa {
+  left: 20px;
+  color: #a8a8a8;
+}
+.search-form .form-search .search-field {
+  background-color: transparent;
+  border-width: 0;
+  padding: 20px;
+  text-transform: uppercase;
+  color: darkgray;
+  text-indent: 30px;
+}
+.search-form .form-submit {
+  position: relative;
+  border-color: #d6d6d6;
+  border-width: 2px;
+  border-style: solid;
+  display: inline-block;
+  max-width: none;
+  width: initial;
+  margin: auto;
+  border-radius: 3px;
+  background-color: transparent;
+}
+.search-form .form-submit .search-submit {
+  background-color: transparent;
+  border: none;
+  padding: 14px 54px 14px 30px;
+}
+.search-form .form-submit .search-submit:hover {
+  background-color: #f2ea90;
+  border-color: #f2ea90;
+  color: #000;
+}
+.search-form .form-submit:hover, .search-form .form-submit:hover .fa {
+  color: #000;
+  border-color: #f2ea90;
+}
+.search-form .form-submit .fa {
+  right: 20px;
+  color: #a9a9a9;
+}
+
+.quick-search {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+.quick-search .search-form {
+  max-width: 80%;
+}
+.quick-search .search-form .form-search {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.quick-search .search-form .form-search .search-field,
+.quick-search .search-form .form-search .fa {
+  color: #fff;
+}
+.quick-search .search-form .form-submit {
+  border: 0;
+}
+.quick-search .search-form .search-submit {
+  border-width: 0;
+  color: #000;
+  font-size: 14px;
+  padding: 14px 54px 14px 30px;
+  opacity: .9;
+  background-color: #f2ea90;
+}
+.quick-search .search-form .search-submit:hover {
+  opacity: 1;
+}
+.quick-search .search-form .fa {
+  color: #000;
+}
+.quick-search .free-spacing {
+  height: 30px;
+  visibility: hidden;
 }
 
 /*--------------------------------------------------------------
