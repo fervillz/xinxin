@@ -296,6 +296,7 @@ th {
 
 p {
   line-height: 1.6em;
+  color: #373737;
 }
 
 /*--------------------------------------------------------------
@@ -317,6 +318,7 @@ h1, h2, h3, h4, h5, h6 {
   clear: both;
   font-family: "Roboto Slab", serif;
   line-height: normal;
+  font-weight: 400;
 }
 h1 a,
 h1 a:visited, h2 a,
@@ -395,7 +397,6 @@ big {
 # Header
 --------------------------------------------------------------*/
 .site-header {
-  position: absolute;
   z-index: 2;
   width: 100%;
 }
@@ -476,7 +477,7 @@ big {
   color: lightgray;
 }
 .site-support .social .search-item {
-  border-left: 1px solid darkgray;
+  border-left: 1px solid #373737;
   margin-left: 10px;
 }
 
@@ -599,6 +600,31 @@ big {
 }
 
 /*--------------------------------------------------------------
+# Sections
+--------------------------------------------------------------*/
+.section--fullwidth {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.section--darker {
+  background: #fbfbfb;
+}
+
+.section-icon .fa {
+  color: #dedede;
+}
+
+.header-title--small {
+  color: #bebebe;
+}
+
+/*Testimonial*/
+.testimonial--content {
+  font-size: 120%;
+}
+
+/*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
 html {
@@ -674,6 +700,14 @@ img {
 table {
   margin: 0 0 1.5em;
   width: 100%;
+}
+
+.highlight-primary {
+  color: #f2ea90;
+}
+
+.title {
+  color: #373737;
 }
 
 /*--------------------------------------------------------------
@@ -824,7 +858,6 @@ a:hover, a:active {
 }
 .main-navigation li:hover > a:after, .main-navigation li.focus > a:after {
   -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transition: 250ms;
           transition: 250ms;
@@ -852,7 +885,6 @@ a:hover, a:active {
   left: 25%;
   max-width: 50%;
   -webkit-transform: scaleX(0);
-      -ms-transform: scaleX(0);
           transform: scaleX(0);
   -webkit-transition: 150ms;
           transition: 150ms;
@@ -868,7 +900,6 @@ a:hover, a:active {
 .main-navigation .current_page_ancestor > a:after,
 .main-navigation .current-menu-ancestor > a:after {
   -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
           transform: scaleX(1);
 }
 
@@ -2081,7 +2112,7 @@ object {
   border-width: 0;
   padding: 20px;
   text-transform: uppercase;
-  color: darkgray;
+  color: #373737;
   text-indent: 30px;
 }
 .search-form .form-submit {
@@ -2215,7 +2246,6 @@ object {
 .owl-carousel .owl-controls .owl-nav .fa:hover {
   background: rgba(0, 0, 0, 0.2);
   -webkit-transform: scale(1.06);
-      -ms-transform: scale(1.06);
           transform: scale(1.06);
 }
 .owl-carousel .owl-controls .owl-next {
@@ -2241,7 +2271,6 @@ object {
   margin: 4px;
   display: inherit;
   -webkit-transform: scale(0.8);
-      -ms-transform: scale(0.8);
           transform: scale(0.8);
   -webkit-transition: 300ms;
           transition: 300ms;
@@ -2249,7 +2278,6 @@ object {
 .owl-carousel .owl-controls .owl-dots .owl-dot.active, .owl-carousel .owl-controls .owl-dots .owl-dot:hover {
   background: rgba(255, 255, 255, 0.3);
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
           transform: scale(1);
 }
 .owl-carousel.owl-loaded {
@@ -2380,7 +2408,6 @@ object {
   width: 100%;
   height: 100%;
   -webkit-transform: scale(0);
-      -ms-transform: scale(0);
           transform: scale(0);
   box-shadow: 0 0 0 2px #FF1919;
   -webkit-animation-name: example;

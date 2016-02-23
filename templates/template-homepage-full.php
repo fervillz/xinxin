@@ -5,9 +5,10 @@ template name: Homepage Full Width
 
 get_header(); ?>
 
+<!--
 <section class="xx_slider big offset-top-x">
 	<?php get_template_part( 'lib/frontend/slider', ''); ?>
-</section><!-- >header-img -->
+</section>
 
 <section class="quick-search">
 	<div class="container">
@@ -17,10 +18,21 @@ get_header(); ?>
 			</div>
 		</div>
 	</div>
-</section><!-- .quick-search -->
+</section> -->
+
+<!--
 
 <div class="xx_testimonials">
-	<?php get_template_part( 'lib/frontend/testimonial', ''); ?>
-</div><!-- /.xx_testimonials -->
+	<?php // get_template_part( 'lib/frontend/testimonial', ''); ?>
+</div> --><!-- /.xx_testimonials -->
+
+<!-- TESTIMONIALS -->
+start
+<div class="xx_testimonials">
+	<?php get_template_part( 'partials/section', 'testimonials'); ?>
+	<?php get_template_part( 'partials/section', 'projects'); ?>
+	<?php get_template_part( 'partials/section', 'newsletter'); ?>
+	<?php get_template_part( 'partials/section', 'pricing'); ?>
+</div> --><!-- /.xx_testimonials -->
 
 <?php get_footer(); ?>
