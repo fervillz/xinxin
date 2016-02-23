@@ -43,9 +43,18 @@ img {
 @import "tables";
 
 .highlight-primary {
-	color: $color__primary;
+	color: $color__highlight-primary;
+}
+
+.highlight-secondary {
+	color: $color__highlight-secondary;
 }
 
 .title {
 	color: $color_darkgray;
+}
+
+.avatar--circle {
+	border-radius: 50%;
+	overflow: hidden;
 }
