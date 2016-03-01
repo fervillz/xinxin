@@ -1,0 +1,23 @@
+.category__item {
+	text-transform: uppercase;
+	padding: 10px 25px;
+	color: #fff;
+	display: inline-block;
+	border-radius: 5px;
+	margin: 5px;
+	font-size: 14px;
+	background-color: transparent;
+	border-style: solid;
+	border-width: 2px;
+	border-color: $color_gray;
+	color: $color_gray;
+	font-weight: 600;
+
+	&.active,
+	&:hover {
+		color: $color_darkgray;
+		background-color: $color__primary;
+		border-width: 2px;
+		border-color: $color__primary;
+    }
+}

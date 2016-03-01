@@ -45,6 +45,7 @@ function xinxin_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_image_size('featured_preview', 55, 55, true);
 	add_image_size( 'slider-image', 1880, 917, true );
+	add_image_size( 'project-image', 289, 404, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

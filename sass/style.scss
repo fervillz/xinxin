@@ -148,9 +148,14 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "plugins/owl";
 
 /*--------------------------------------------------------------
-# Blocks
+# Animation
 --------------------------------------------------------------*/
-@import "elements/blocks";
+@import "animation/scale";
+
+/*--------------------------------------------------------------
+# Entry
+--------------------------------------------------------------*/
+@import "elements/entry";
 
 /*--------------------------------------------------------------
 # Customizer preview

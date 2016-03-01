@@ -33,6 +33,7 @@ start
 	<?php get_template_part( 'partials/section', 'projects'); ?>
 	<?php get_template_part( 'partials/section', 'newsletter'); ?>
 	<?php get_template_part( 'partials/section', 'pricing'); ?>
+	<?php get_template_part( 'partials/section', 'team'); ?>
 </div> --><!-- /.xx_testimonials -->
 
 <?php get_footer(); ?>
